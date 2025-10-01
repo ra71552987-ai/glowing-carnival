@@ -11,14 +11,32 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: radial-gradient(circle at top left, #050d1a, #0a1426, #050d1a);
+            background: radial-gradient(circle at top, #020611, #050d1c, #020611);
             color: #e8e8e8;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
-        
+
+        /* خلفية نجوم */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: starsMove 200s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* الأمواج */
         .waves-container {
             position: fixed;
             top: 0;
@@ -26,120 +44,117 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.3;
         }
-        
+
         .wave {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 120px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" fill="%230a1f3d"><path d="M0 0v46.29c60 30 120 40 180 35s150-40 220-42c80-2 160 25 240 40s160 18 240 0 160-50 240 5V0z"/></svg>');
-            background-size: 1200px 120px;
+            height: 140px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" fill="%23f5d96d"><path d="M0 0v46.29c60 30 120 40 180 35s150-40 220-42c80-2 160 25 240 40s160 18 240 0 160-50 240 5V0z"/></svg>');
+            background-size: 1200px 140px;
         }
-        
-        .wave-1 { animation: wave 25s linear infinite; opacity: 0.6; }
-        .wave-2 { animation: wave 20s linear infinite reverse; opacity: 0.4; }
-        .wave-3 { animation: wave 15s linear infinite; opacity: 0.2; }
-        
+
+        .wave-1 { animation: wave 20s linear infinite; opacity: 0.3; }
+        .wave-2 { animation: wave 25s linear infinite reverse; opacity: 0.4; }
+        .wave-3 { animation: wave 18s linear infinite; opacity: 0.6; }
+
         @keyframes wave {
             0% { background-position-x: 0; }
             100% { background-position-x: 1200px; }
         }
-        
+
+        /* محتوى الموقع */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
             z-index: 10;
-        }
-        
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
             text-align: center;
         }
-        
+
         .app-icon {
-            width: 160px;
-            height: 160px;
+            width: 170px;
+            height: 170px;
             border-radius: 35px;
-            margin-bottom: 30px;
+            margin: 40px auto;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-            border: 3px solid #444d7a;
+            box-shadow: 0 0 40px rgba(245, 217, 109, 0.6);
+            border: 2px solid #f5d96d;
+            animation: zoomIn 2s ease;
         }
-        
+
         .app-icon img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             color: #f5d96d;
-            text-shadow: 0 0 15px rgba(245, 217, 109, 0.7);
-            font-weight: 600;
+            text-shadow: 0 0 20px rgba(245, 217, 109, 0.9);
+            animation: fadeInDown 2s ease;
         }
-        
+
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #a8c6e0;
             margin-bottom: 40px;
-            max-width: 600px;
-            line-height: 1.7;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 3s ease;
         }
-        
+
         .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            display: inline-block;
             background: linear-gradient(to right, #f5d96d, #c9a635);
             color: #0a1426;
-            padding: 18px 45px;
+            padding: 18px 50px;
             font-size: 1.4rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
             margin: 20px 0;
-            box-shadow: 0 15px 35px rgba(245, 217, 109, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(245, 217, 109, 0.7);
+            transition: all 0.4s ease;
+            animation: pulse 3s infinite;
         }
-        
+
         .download-btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(245, 217, 109, 0.6);
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(245, 217, 109, 1);
         }
-        
+
         .app-info {
             margin-top: 40px;
-            background: rgba(15, 25, 45, 0.7);
+            background: rgba(15, 25, 45, 0.6);
             padding: 25px;
             border-radius: 15px;
             max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(80, 100, 150, 0.4);
+            border: 1px solid rgba(245, 217, 109, 0.4);
+            animation: fadeInUp 2.5s ease;
         }
-        
+
         .info-item {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
             border-bottom: 1px solid rgba(168, 198, 224, 0.2);
         }
-        
+
         .info-item:last-child { border-bottom: none; }
-        
         .info-label { color: #a8c6e0; }
         .info-value { color: #f5d96d; font-weight: 600; }
-        
+
         footer {
             text-align: center;
             padding: 30px 0;
@@ -148,59 +163,59 @@
             font-size: 0.9rem;
             border-top: 1px solid rgba(80, 100, 150, 0.4);
         }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1.1rem; }
-            .app-icon { width: 120px; height: 120px; }
-            .download-btn { padding: 15px 35px; font-size: 1.2rem; }
+
+        /* حركات */
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        @keyframes fadeInDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+        @keyframes fadeInUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+        @keyframes zoomIn { from {opacity: 0; transform: scale(0.6);} to {opacity: 1; transform: scale(1);} }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(245, 217, 109, 0.5); }
+            50% { box-shadow: 0 0 35px rgba(245, 217, 109, 1); }
+            100% { box-shadow: 0 0 15px rgba(245, 217, 109, 0.5); }
         }
     </style>
 </head>
 <body>
+    <div class="stars"></div>
     <div class="waves-container">
         <div class="wave wave-1"></div>
         <div class="wave wave-2"></div>
         <div class="wave wave-3"></div>
     </div>
-    
+
     <div class="container">
-        <div class="content">
-            <div class="app-icon">
-                <img src="quran_icon.png" alt="Quran Icon">
-            </div>
-            
-            <h1>تطبيق القرآن الكريم</h1>
-            <p class="subtitle">تطبيق شامل للقرآن الكريم مع التفسير والتلاوة، مصمم لتوفير تجربة روحية عميقة ومميزة</p>
-            
-            <a href="base.apk" class="download-btn">
-                <i class="fas fa-download"></i>
-                تحميل التطبيق
-            </a>
-            
-            <div class="app-info">
-                <div class="info-item">
-                    <span class="info-label">اسم التطبيق:</span>
-                    <span class="info-value">القرآن الكريم</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">الإصدار:</span>
-                    <span class="info-value">1.0</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">الحجم:</span>
-                    <span class="info-value">83 ميجابايت</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">التوافق:</span>
-                    <span class="info-value">أندرويد 5.0+</span>
-                </div>
-            </div>
+        <div class="app-icon">
+            <img src="quran_icon.png" alt="Quran Icon">
         </div>
         
-        <footer>
-            <p>جميع الحقوق محفوظة © 2025 - تطبيق القرآن الكريم</p>
-        </footer>
+        <h1>تطبيق القرآن الكريم</h1>
+        <p class="subtitle">تجربة روحانية عميقة مع القرآن الكريم - التلاوة، التفسير، البحث الذكي، وكل ما تحتاجه في مكان واحد</p>
+        
+        <a href="base.apk" class="download-btn">⬇ تحميل التطبيق</a>
+        
+        <div class="app-info">
+            <div class="info-item">
+                <span class="info-label">اسم التطبيق:</span>
+                <span class="info-value">القرآن الكريم</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">الإصدار:</span>
+                <span class="info-value">1.0</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">الحجم:</span>
+                <span class="info-value">83 ميجابايت</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">التوافق:</span>
+                <span class="info-value">أندرويد 5.0+</span>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 - تطبيق القرآن الكريم</p>
+    </footer>
 </body>
 </html>
