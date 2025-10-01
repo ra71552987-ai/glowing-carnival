@@ -13,8 +13,8 @@
         }
 
         body {
-            background: radial-gradient(circle at top, #020611, #050d1c, #020611);
-            color: #e8e8e8;
+            background: radial-gradient(circle at top, #050611, #0b1120, #050611);
+            color: #dcdcdc;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -28,7 +28,7 @@
             z-index: -2;
             background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
             animation: starsMove 200s linear infinite;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         @keyframes starsMove {
@@ -56,9 +56,9 @@
             background-size: 1200px 140px;
         }
 
-        .wave-1 { animation: wave 20s linear infinite; opacity: 0.3; }
-        .wave-2 { animation: wave 25s linear infinite reverse; opacity: 0.4; }
-        .wave-3 { animation: wave 18s linear infinite; opacity: 0.6; }
+        .wave-1 { animation: wave 20s linear infinite; opacity: 0.2; }
+        .wave-2 { animation: wave 25s linear infinite reverse; opacity: 0.3; }
+        .wave-3 { animation: wave 18s linear infinite; opacity: 0.4; }
 
         @keyframes wave {
             0% { background-position-x: 0; }
@@ -81,7 +81,7 @@
             border-radius: 35px;
             margin: 40px auto;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(245, 217, 109, 0.6);
+            box-shadow: 0 0 40px rgba(245, 217, 109, 0.5);
             border: 2px solid #f5d96d;
             animation: zoomIn 2s ease;
         }
@@ -96,7 +96,7 @@
             font-size: 3.5rem;
             margin-bottom: 15px;
             color: #f5d96d;
-            text-shadow: 0 0 20px rgba(245, 217, 109, 0.9);
+            text-shadow: 0 0 15px rgba(245, 217, 109, 0.7);
             animation: fadeInDown 2s ease;
         }
 
@@ -121,26 +121,26 @@
             text-decoration: none;
             border-radius: 50px;
             margin: 20px 0;
-            box-shadow: 0 0 25px rgba(245, 217, 109, 0.7);
+            box-shadow: 0 0 20px rgba(245, 217, 109, 0.5);
             transition: all 0.4s ease;
             animation: pulse 3s infinite;
         }
 
         .download-btn:hover {
             transform: scale(1.08);
-            box-shadow: 0 0 40px rgba(245, 217, 109, 1);
+            box-shadow: 0 0 35px rgba(245, 217, 109, 0.9);
         }
 
         .app-info {
             margin-top: 40px;
-            background: rgba(15, 25, 45, 0.6);
+            background: rgba(15, 25, 45, 0.5);
             padding: 25px;
             border-radius: 15px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(245, 217, 109, 0.4);
+            border: 1px solid rgba(245, 217, 109, 0.3);
             animation: fadeInUp 2.5s ease;
         }
 
@@ -148,12 +148,38 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(168, 198, 224, 0.2);
+            border-bottom: 1px solid rgba(168, 198, 224, 0.1);
         }
 
         .info-item:last-child { border-bottom: none; }
         .info-label { color: #a8c6e0; }
         .info-value { color: #f5d96d; font-weight: 600; }
+
+        /* شريط النص المتحرك */
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            border-top: 1px solid rgba(245, 217, 109, 0.3);
+            border-bottom: 1px solid rgba(245, 217, 109, 0.3);
+            padding: 10px 0;
+            background: rgba(0,0,0,0.2);
+            color: #f5d96d;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
 
         footer {
             text-align: center;
@@ -193,7 +219,7 @@
         <p class="subtitle">تجربة روحانية عميقة مع القرآن الكريم - التلاوة، التفسير، البحث الذكي، وكل ما تحتاجه في مكان واحد</p>
         
         <a href="base.apk" class="download-btn">⬇ تحميل التطبيق</a>
-        
+
         <div class="app-info">
             <div class="info-item">
                 <span class="info-label">اسم التطبيق:</span>
@@ -211,6 +237,11 @@
                 <span class="info-label">التوافق:</span>
                 <span class="info-value">أندرويد 5.0+</span>
             </div>
+        </div>
+
+        <!-- شريط النص المتحرك -->
+        <div class="marquee">
+            <span>مطور المشروع إياد - هدفه منه صدقة جارية</span>
         </div>
     </div>
 
